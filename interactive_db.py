@@ -45,14 +45,19 @@ def purge():
     conn.commit()
     conn.close()
 
-def _is_redundant():
 
-    pass
+def modify_listing(input_string):
+    
+    ID, col, new_val = input_string.split("; ")
 
-def modify_listing():
-
-    pass
-
+    conn = sql.connect("positions.db")
+    cur = conn.cursor()
+    
+    cur.execute(f"UPDATE POSITIONS SET {col} = {new_val} WHERE ID = {ID}")
+    
+    conn.commit()
+    conn.close()
+    
 def show_listing(ID):
     
     try:
