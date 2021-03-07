@@ -2,6 +2,8 @@
 all the functions needed to interact with the database
 """
 
+
+
 def add_listing():
 
     pass
