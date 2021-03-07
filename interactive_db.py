@@ -61,6 +61,9 @@ def show_listing(ID):
     
     except StopIteration:
         print("Invalid ID")
+        
+def show_all_listings():
+    return list[sql.connect("positions.db").cursor().execute("SELECT * FROM POSITIONS")]
 
 
 def _new_ID():
