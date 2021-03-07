@@ -9,35 +9,27 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.hi_there = tk.Button(self)
-        self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
-        self.hi_there.pack(side="top")
+        add_listing = tk.Button(master=self, text='Add listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askstring("Add listing", "Enter semi-colon separated listing")))
+        add_listing.pack(side="top")
         
-        self.add_listingButton = tk.Button(self)
-        self.add_listingButton["text"] = "Add listing"
-        self.add_listingButton["command"] = interactive_db.add_listing
-        self.add_listingButton.pack(side = "top")
+        remove_listing = tk.Button(master=self, text='Remove listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askinteger("Remove listing", "Enter listing ID")))
+        remove_listing.pack(side="top")
+    
         
-        self.remove_listing = tk.Button(self)
-        self.remove_listing["text"] = "Remove listing"
-        self.remove_listing["command"] = interactive_db.remove_listing
-        self.remove_listing.pack(side = "top")
+        modify_listing = tk.Button(master=self, text='Modify listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askinteger("Modify listing", "Enter listing ID")))
+        modify_listing.pack(side="top")
         
-        self.modify_listing = tk.Button(self)
-        self.modify_listing["text"] = "Modify listing"
-        self.modify_listing["command"] = interactive_db.modify_listing
-        self.modify_listing.pack(side = "top")
+        show_listing = tk.Button(master=self, text='Show listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askinteger("Show listing", "Enter listing ID")))
+        show_listing.pack(side="top")
         
-        self.show_listing = tk.Button(self)
-        self.show_listing["text"] = "Show listing"
-        self.show_listing["command"] = interactive_db.show_listing
-        self.show_listing.pack(side = "top")
-        
+        '''
+        just purges, ya know?
+        '''
         self.purge = tk.Button(self)
         self.purge["text"] = "Purge"
         self.purge["command"] = interactive_db.purge
         self.purge.pack(side = "top")
+        
 
         self.quit = tk.Button(self, text="QUIT", fg="red",
                               command=self.master.destroy)
