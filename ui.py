@@ -19,8 +19,12 @@ class Application(tk.Frame):
         modify_listing = tk.Button(master=self, text='Modify listing', command= lambda: interactive_db.modify_listing(tk.simpledialog.askinteger("Modify listing", "Enter listing ID")))
         modify_listing.pack(side="top")
         
-        show_listing = tk.Button(master=self, text='Show listing', command= lambda: interactive_db.show_listing(tk.simpledialog.askinteger("Show listing", "Enter listing ID")))
+        show_listing = tk.Button(master=self, text='Show listing', command= lambda: print(interactive_db.show_listing(tk.simpledialog.askinteger("Show listing", "Enter listing ID"))))
         show_listing.pack(side="top")
+        
+        show_all_listings = tk.Button(master=self, text='Show all listings', command= lambda: interactive_db.show_all_listings)
+        show_all_listings.pack(side="top")
+        
         
         '''
         just purges, ya know?
