@@ -63,7 +63,7 @@ def show_listing(ID):
         print("Invalid ID")
         
 def show_all_listings():
-    return "\n".join(list(sql.connect("positions.db").cursor().execute("SELECT * FROM POSITIONS")))
+    return "\n".join([str(x) for x in sql.connect("positions.db").cursor().execute("SELECT * FROM POSITIONS")])
 
 
 def _new_ID():
