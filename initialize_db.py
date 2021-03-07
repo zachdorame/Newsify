@@ -15,7 +15,7 @@ def initialize():
 	cur.execute('''
 					CREATE TABLE POSITIONS
                         (ID integer PRIMARY KEY, positionName text, employer text, 
-                         postingLink text, deadlineExists integer, dueDate text)
+                         location text, postingLink text, employerLink text, dueDate text)
 				''')
 
 	conn.close()
