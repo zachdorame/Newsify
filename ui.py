@@ -1,5 +1,6 @@
 import tkinter as tk
 import interactive_db
+import output
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -9,7 +10,7 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        add_listing = tk.Button(master=self, text='Add listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askstring("Add listing", "Enter semi-colon separated listing")))
+        add_listing = tk.Button(master=self, text='Add listing', command= lambda: interactive_db.add_listing(tk.simpledialog.askstring("Add listing", "                                                                Enter semi-colon separated listing                                                                ")))
         add_listing.pack(side="top")
         
         remove_listing = tk.Button(master=self, text='Remove listing', command= lambda: interactive_db.remove_listing(tk.simpledialog.askinteger("Remove listing", "Enter listing ID")))
@@ -24,6 +25,9 @@ class Application(tk.Frame):
         
         show_all_listings = tk.Button(master=self, text='Show all listings', command= lambda: print(interactive_db.show_all_listings()))
         show_all_listings.pack(side="top")
+        
+        output_button = tk.Button(master=self, text='Generate a CSV', command= lambda: output.generate_output_csv())
+        output_button.pack(side="top")
         
         
         '''
