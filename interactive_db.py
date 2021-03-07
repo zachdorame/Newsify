@@ -36,10 +36,10 @@ def purge():
     conn = sql.connect("positions.db")
     cur = conn.cursor()
     
-    cur.execute(f"""
+    cur.execute("""
                 DELETE FROM POSITIONS WHERE ID IN (
                     SELECT ID FROM POSITIONS
-                        WHERE dueDate < {str(datetime.date.today)}
+                        WHERE dueDate < date('now')
                     )
                 """)
     conn.commit()
